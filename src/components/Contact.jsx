@@ -17,25 +17,25 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "johndoe@example.com",
-      href: "mailto:johndoe@example.com",
+      value: "priom6046@gmail.com",
+      href: "mailto:priom6046@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (234) 567-8900",
-      href: "tel:+12345678900",
+      value: "01613347903",
+      href: "tel:01613347903",
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      value: "+1 (234) 567-8900",
-      href: "https://wa.me/12345678900",
+      value: "+8801613347903",
+      href: "https://wa.me/8801613347903",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "New York, USA",
+      value: "Dhaka, Bangladesh",
       href: null,
     },
   ];
@@ -130,7 +130,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                  placeholder="John Doe"
+                  placeholder="Priom Sheikh"
                 />
               </div>
 
@@ -146,7 +146,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                  placeholder="john@example.com"
+                  placeholder="priom6046@gmail.com"
                 />
               </div>
 

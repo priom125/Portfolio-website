@@ -5,32 +5,33 @@ import { GraduationCap, Briefcase } from "lucide-react";
 
 const education = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University of Technology",
-    period: "2018 - 2022",
-    description: "Graduated with honors. Focused on software engineering and web development. Participated in various coding competitions and hackathons.",
-  },
-  {
     degree: "Higher Secondary Certificate (HSC)",
-    institution: "ABC College",
-    period: "2016 - 2018",
-    description: "Science stream with focus on Mathematics and Physics. Achieved distinction in final examinations.",
+    institution: "Narayanganj College",
+    period: "2020 - 2022",
+    description: "Graduated with honors. Focused on software engineering and web development.",
   },
+
 ];
 
 const experience = [
+  // {
+  //   title: "Full Stack Developer",
+  //   company: "Tech Solutions Inc.",
+  //   period: "2022 - Present",
+  //   description: "Developing and maintaining web applications using React, Node.js, and MongoDB. Leading a team of 3 developers on client projects.",
+  // },
+  // {
+  //   title: "Frontend Developer Intern",
+  //   company: "Digital Agency",
+  //   period: "2021 - 2022",
+  //   description: "Built responsive websites and implemented UI designs using React and Tailwind CSS. Collaborated with designers and backend developers.",
+  // },
   {
-    title: "Full Stack Developer",
-    company: "Tech Solutions Inc.",
-    period: "2022 - Present",
-    description: "Developing and maintaining web applications using React, Node.js, and MongoDB. Leading a team of 3 developers on client projects.",
-  },
-  {
-    title: "Frontend Developer Intern",
-    company: "Digital Agency",
-    period: "2021 - 2022",
-    description: "Built responsive websites and implemented UI designs using React and Tailwind CSS. Collaborated with designers and backend developers.",
-  },
+    experience: "Currently working as a Freelance Web Developer",
+    company: "Self-Employed",
+    period: "2025 - Present",
+    description: "Building custom websites and web applications for clients using modern web technologies. Focused on delivering high-quality user experiences.",
+  }
 ];
 
 const TimelineItem = ({ item, index, isInView, icon: Icon, type }) => (

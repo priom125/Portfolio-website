@@ -10,7 +10,7 @@ const skillCategories = [
       { name: "JavaScript", percentage: 85 },
       { name: "HTML/CSS", percentage: 95 },
       { name: "Tailwind CSS", percentage: 90 },
-      { name: "TypeScript", percentage: 75 },
+     
     ],
   },
   {
@@ -19,7 +19,7 @@ const skillCategories = [
       { name: "Node.js", percentage: 80 },
       { name: "Express.js", percentage: 85 },
       { name: "MongoDB", percentage: 75 },
-      { name: "PostgreSQL", percentage: 70 },
+     
       { name: "REST APIs", percentage: 85 },
     ],
   },
@@ -29,8 +29,7 @@ const skillCategories = [
       { name: "Git/GitHub", percentage: 90 },
       { name: "VS Code", percentage: 95 },
       { name: "Figma", percentage: 70 },
-      { name: "Docker", percentage: 60 },
-      { name: "AWS", percentage: 55 },
+   
     ],
   },
 ];

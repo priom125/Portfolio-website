@@ -1,50 +1,51 @@
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Github, Code, Lightbulb, AlertTriangle, Rocket } from "lucide-react";
-
+import loanlinkImage from "../assets/loanlink1.png"; // Replace with actual image path
+import localeats from "../assets/localeats.png"; // Replace with actual image path
 const projectsData = {
-  1: {
+ 1: {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "LoanLink - Loan Management System",
     category: "Full Stack",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
-    description: "A complete e-commerce solution with shopping cart functionality, secure payment integration using Stripe, comprehensive admin dashboard for inventory management, and user authentication. The platform supports multiple payment methods and includes real-time order tracking.",
-    technologies: ["React", "Node.js", "MongoDB", "Express.js", "Stripe", "Tailwind CSS", "JWT"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+    image: loanlinkImage,
+    description: "A complete loan management solution with repayment tracking, Stripe payment integration, and an administrative approval dashboard.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Express"],
+    liveLink: "https://chipper-pie-9d8c5d.netlify.app/",
+    githubLink: "https://github.com/priom125/LoanLink",
     challenges: [
-      "Implementing secure payment gateway integration with proper error handling",
-      "Managing complex state for shopping cart across multiple pages",
-      "Optimizing database queries for large product catalogs",
-      "Ensuring mobile responsiveness for all checkout flows",
+      "Designing a secure server-side logic to prevent tampering with loan interest rates and repayment amounts during the checkout process.",
+      "Implementing complex role-based access control (RBAC) to separate applicant views from the administrative management dashboard.",
+      "Managing the asynchronous lifecycle of Stripe webhooks to ensure MongoDB is accurately updated only after successful payment confirmation.",
+      "Developing a multi-step loan application form that preserves state and validates user data at every stage of the funnel."
     ],
     improvements: [
-      "Add AI-powered product recommendations based on user behavior",
-      "Implement real-time inventory sync with warehouse systems",
-      "Add multi-language support for international customers",
-      "Integrate with more payment gateways like PayPal and Apple Pay",
+      "Integrate an automated credit scoring algorithm to provide instant loan eligibility feedback to users.",
+      "Develop a PDF generation service using PDFKit to allow users to download formal loan agreements and payment statements.",
+      "Implement automated email/SMS reminders for upcoming repayment deadlines using Cron jobs and SendGrid.",
+      "Add a data visualization suite using Recharts to help admins track total disbursed capital and repayment trends."
     ],
   },
   2: {
     id: 2,
-    title: "Task Management App",
-    category: "Frontend",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop",
-    description: "A collaborative task management application that enables teams to organize, track, and manage projects efficiently. Features include real-time updates, drag-and-drop task organization, team collaboration tools, and deadline tracking with notifications.",
-    technologies: ["React", "Tailwind CSS", "Firebase", "Framer Motion", "React DnD"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+    title: "LocalEats - Food Sharing App",
+    category: "Full Stack",
+    image: localeats,
+    description: "A community-driven platform enabling users to reduce waste by sharing surplus food. Features real-time availability tracking and interactive donor reviews.",
+    technologies: ["React", "Tailwind CSS", "Firebase", "Framer Motion", "Express.js", "MongoDB"],
+    liveLink: "https://localeatsnj.netlify.app/",
+    githubLink: "https://github.com/priom125/Assignment-10",
     challenges: [
-      "Implementing real-time synchronization across multiple users",
-      "Creating smooth drag-and-drop functionality for task reordering",
-      "Managing complex nested data structures for projects and subtasks",
-      "Handling offline mode and data synchronization",
+      "Synchronizing real-time food availability status across clients to ensure items are marked as 'claimed' instantly, preventing multiple users from arriving for the same item.",
+      "Building a complex filtering system in the backend to query MongoDB for food items based on expiration dates and dietary categories.",
+      "Optimizing image delivery for food listings to ensure fast page loads without sacrificing the visual appeal of shared meals.",
+      "Creating a smooth, accessible UI for food posting and reviewing using Framer Motion for high-quality interactions."
     ],
     improvements: [
-      "Add Gantt chart view for project timeline visualization",
-      "Implement AI-assisted task prioritization",
-      "Add integration with calendar apps like Google Calendar",
-      "Create mobile apps for iOS and Android",
+      "Incorporate the Google Maps API to provide a 'Near Me' map view for locating available food in the user's immediate vicinity.",
+      "Develop an in-app messaging system using Socket.io to allow donors and recipients to coordinate pickups securely.",
+      "Implement a 'Trust & Safety' badge system based on user reviews and successful food sharing history.",
+      "Add a 'Watchlist' feature that notifies users via push notifications when a specific food category becomes available nearby."
     ],
   },
   3: {
@@ -111,9 +112,9 @@ const ProjectDetails = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="pt-16"
+        className="pt-16 flex justify-center"
       >
-        <div className="aspect-video max-h-[500px] overflow-hidden">
+        <div className="aspect-video max-h-[500px] overflow-hidden max-w-4xl w-full">
           <img
             src={project.image}
             alt={project.title}

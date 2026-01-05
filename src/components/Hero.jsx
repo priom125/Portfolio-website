@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { Download, Github, Linkedin, Twitter, Facebook, ArrowDown } from "lucide-react";
+import profileImage from "../assets/profile-pic.jpg"; // Replace with actual image path
+import resumePDF from "../assets/cv.pdf";
 
 const Hero = () => {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+   { icon: Github, href: "https://github.com/priom125", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/priom-sheikh/", label: "LinkedIn" },
+  //   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  //   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
   ];
 
   const stats = [
@@ -16,8 +18,13 @@ const Hero = () => {
   ];
 
   const handleDownloadResume = () => {
-    // Resume download - replace with actual resume URL when ready
-    alert("Resume download will be available soon!");
+    // Trigger download of the bundled resume PDF
+    const link = document.createElement("a");
+    link.href = resumePDF;
+    link.download = "Priom_Sheikh_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -40,7 +47,7 @@ const Hero = () => {
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-4">
             Hi, I'm{" "}
-            <span className="text-gradient">John Doe</span>
+            <span className="text-gradient">Priom Sheikh</span>
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-serif text-muted-foreground mb-6">
@@ -111,7 +118,7 @@ const Hero = () => {
             {/* Profile Image */}
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                src={profileImage}
                 alt="Professional Photo"
                 className="w-full h-full object-cover"
               />

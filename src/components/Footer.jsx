@@ -3,10 +3,10 @@ import { Heart, Github, Linkedin, Twitter, Facebook, ArrowUp } from "lucide-reac
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Github, href: "https://github.com/priom125", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/priom-sheikh/", label: "LinkedIn" },
+  //   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  //   { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
   ];
 
   const scrollToTop = () => {

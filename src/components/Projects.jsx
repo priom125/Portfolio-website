@@ -3,27 +3,28 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import loanlinkImage from "../assets/loanlink.png"; // Replace with actual image path
+import localeats from "../assets/localeats.png"; // Replace with actual image path
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "LoanLink - Loan Management System",
     category: "Full Stack",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    description: "A complete e-commerce solution with cart, payment integration, and admin dashboard.",
+    image: loanlinkImage,
+    description: "A complete loan management solution with cart, payment integration, and admin dashboard.",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+    liveLink: "https://chipper-pie-9d8c5d.netlify.app/",
+    githubLink: "https://github.com/priom125/LoanLink",
   },
   {
-    id: 2,
-    title: "Task Management App",
-    category: "Frontend",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    description: "A collaborative task management application with real-time updates and team features.",
-    technologies: ["React", "Tailwind CSS", "Firebase"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+     id: 2,
+    title: "LocalEats - food sharing App",
+    category: "Full Stack",
+    image: localeats,
+    description: "A collaborative food sharing application that enables users to organize, track, and manage food sharing efficiently. Features include real-time updates, drag-and-drop  food reviews.",
+    technologies: ["React", "Tailwind CSS", "Firebase", "Framer Motion", "express js", "mongoDB"],
+    liveLink: "https://localeatsnj.netlify.app/",
+    githubLink: "https://github.com/priom125/Assignment-10",
   },
   {
     id: 3,
