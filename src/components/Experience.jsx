@@ -3,36 +3,62 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Briefcase } from "lucide-react";
 
-const experiences = [
+const education = [
   {
-    type: "education",
-    title: "Front-end Developer",
-    place: "Harvard University",
-    period: "2012 - 2016",
-    icon: GraduationCap,
+    degree: "Bachelor of Science in Computer Science",
+    institution: "University of Technology",
+    period: "2018 - 2022",
+    description: "Graduated with honors. Focused on software engineering and web development. Participated in various coding competitions and hackathons.",
   },
   {
-    type: "work",
-    title: "Full Stack Developer",
-    place: "Google Inc.",
-    period: "2016 - 2019",
-    icon: Briefcase,
-  },
-  {
-    type: "work",
-    title: "Web Designer",
-    place: "Apple Inc.",
-    period: "2019 - 2022",
-    icon: Briefcase,
-  },
-  {
-    type: "work",
-    title: "Lead UX Designer",
-    place: "Dropbox Inc.",
-    period: "2022 - Present",
-    icon: Briefcase,
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "ABC College",
+    period: "2016 - 2018",
+    description: "Science stream with focus on Mathematics and Physics. Achieved distinction in final examinations.",
   },
 ];
+
+const experience = [
+  {
+    title: "Full Stack Developer",
+    company: "Tech Solutions Inc.",
+    period: "2022 - Present",
+    description: "Developing and maintaining web applications using React, Node.js, and MongoDB. Leading a team of 3 developers on client projects.",
+  },
+  {
+    title: "Frontend Developer Intern",
+    company: "Digital Agency",
+    period: "2021 - 2022",
+    description: "Built responsive websites and implemented UI designs using React and Tailwind CSS. Collaborated with designers and backend developers.",
+  },
+];
+
+const TimelineItem = ({ item, index, isInView, icon: Icon, type }) => (
+  <motion.div
+    initial={{ opacity: 0, x: type === "education" ? -30 : 30 }}
+    animate={isInView ? { opacity: 1, x: 0 } : {}}
+    transition={{ delay: index * 0.2 }}
+    className="relative pl-8 pb-8 border-l-2 border-border last:border-transparent last:pb-0"
+  >
+    <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+      <Icon size={14} className="text-primary-foreground" />
+    </div>
+    <div className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors">
+      <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
+        {item.period}
+      </span>
+      <h3 className="text-lg font-semibold text-foreground mb-1">
+        {item.degree || item.title}
+      </h3>
+      <p className="text-primary font-medium text-sm mb-2">
+        {item.institution || item.company}
+      </p>
+      <p className="text-muted-foreground text-sm leading-relaxed">
+        {item.description}
+      </p>
+    </div>
+  </motion.div>
+);
 
 const Experience = () => {
   const ref = useRef(null);
@@ -49,25 +75,46 @@ const Experience = () => {
           Education & <span className="text-gradient">Experience</span>
         </h2>
 
-        <div className="space-y-6">
-          {experiences.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="flex gap-4 items-start p-4 rounded-xl bg-card border border-border card-hover"
-            >
-              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center text-primary shrink-0">
-                <item.icon size={20} />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-medium text-foreground mb-1">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.place}</p>
-              </div>
-              <span className="text-muted-foreground text-sm">{item.period}</span>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Education */}
+          <div>
+            <h3 className="text-2xl font-serif font-semibold mb-8 flex items-center gap-3">
+              <GraduationCap className="text-primary" size={28} />
+              Education
+            </h3>
+            <div>
+              {education.map((item, index) => (
+                <TimelineItem
+                  key={index}
+                  item={item}
+                  index={index}
+                  isInView={isInView}
+                  icon={GraduationCap}
+                  type="education"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Experience */}
+          <div>
+            <h3 className="text-2xl font-serif font-semibold mb-8 flex items-center gap-3">
+              <Briefcase className="text-primary" size={28} />
+              Experience
+            </h3>
+            <div>
+              {experience.map((item, index) => (
+                <TimelineItem
+                  key={index}
+                  item={item}
+                  index={index}
+                  isInView={isInView}
+                  icon={Briefcase}
+                  type="experience"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>
