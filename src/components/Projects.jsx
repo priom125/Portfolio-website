@@ -1,28 +1,39 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const projects = [
   {
-    title: "Business Analytics Dashboard",
-    category: "Web Design",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Architecture Studio Website",
-    category: "Development",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop",
-  },
-  {
+    id: 1,
     title: "E-Commerce Platform",
-    category: "UI/UX Design",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    category: "Full Stack",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    description: "A complete e-commerce solution with cart, payment integration, and admin dashboard.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
   },
   {
-    title: "Mobile Banking App",
-    category: "App Design",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop",
+    id: 2,
+    title: "Task Management App",
+    category: "Frontend",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    description: "A collaborative task management application with real-time updates and team features.",
+    technologies: ["React", "Tailwind CSS", "Firebase"],
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
+  },
+  {
+    id: 3,
+    title: "Portfolio Website",
+    category: "Web Design",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
+    description: "A modern, responsive portfolio website showcasing projects and skills.",
+    technologies: ["React", "Framer Motion", "Tailwind CSS"],
+    liveLink: "https://example.com",
+    githubLink: "https://github.com",
   },
 ];
 
@@ -37,37 +48,82 @@ const Projects = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title mb-12">
+        <h2 className="section-title mb-4">
           Featured <span className="text-gradient">Projects</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <p className="text-muted-foreground mb-12 max-w-2xl">
+          Here are some of my recent projects. Each project is built with care and attention to detail.
+        </p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-xl bg-card border border-border card-hover"
+              className="group bg-card rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
             >
-              <div className="aspect-video overflow-hidden">
+              {/* Project Image */}
+              <div className="relative aspect-video overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <div className="flex-1">
-                  <span className="text-primary text-sm font-medium">{project.category}</span>
-                  <h3 className="font-serif text-xl font-semibold text-foreground">{project.title}</h3>
+                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:scale-110 transition-transform"
+                  >
+                    <ExternalLink size={18} />
+                  </a>
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:scale-110 transition-transform"
+                  >
+                    <Github size={18} />
+                  </a>
                 </div>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:scale-110 transition-transform"
+              </div>
+
+              {/* Project Info */}
+              <div className="p-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-3">
+                  {project.category}
+                </span>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs rounded bg-muted text-muted-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* View More Button */}
+                <Link
+                  to={`/project/${project.id}`}
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
                 >
-                  <ExternalLink size={18} />
-                </a>
+                  <Eye size={16} />
+                  View Details
+                </Link>
               </div>
             </motion.div>
           ))}
