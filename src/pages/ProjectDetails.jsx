@@ -55,8 +55,8 @@ const projectsData = {
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=600&fit=crop",
     description: "A modern, responsive portfolio website designed to showcase projects and skills. Built with performance and accessibility in mind, featuring smooth animations, dark/light mode, and optimized for all devices. The site includes sections for projects, skills, experience, and contact information.",
     technologies: ["React", "Framer Motion", "Tailwind CSS", "React Router", "Vite"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+    liveLink: "https://magnificent-gecko-afbbd0.netlify.app/",
+    githubLink: "https://github.com/priom125/Portfolio-website",
     challenges: [
       "Creating smooth scroll-based animations without impacting performance",
       "Ensuring consistent design across different screen sizes",

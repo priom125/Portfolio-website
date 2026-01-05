@@ -33,8 +33,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
     description: "A modern, responsive portfolio website showcasing projects and skills.",
     technologies: ["React", "Framer Motion", "Tailwind CSS"],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com",
+    liveLink: "https://magnificent-gecko-afbbd0.netlify.app/",
+    githubLink: "https://github.com/priom125/Portfolio-website",
   },
 ];
 
